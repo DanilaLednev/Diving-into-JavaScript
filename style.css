@@ -1,0 +1,117 @@
+:root {
+  --bgcolor: hsl(235, 60%, 16%);
+  --bgcolor-content: hsl(240, 77%, 17%);
+  --bgcolor-buttonNoActive: hsl(228, 4%, 25%);
+  --bgcolor-buttonActive: hsla(355, 73%, 46%, 0.762);
+  --color-buttonNoActive: hsl(0, 1%, 66%);
+  --color-buttonActive: hsla(0, 0%, 100%, 0.902);
+  --color-shadow: hsl(235, 36%, 35%);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--bgcolor);
+}
+.container {
+  background-color: var(--bgcolor-content);
+  width: min(90%, 450px);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 4em 2em;
+  border-radius: 0.5em;
+  z-index: 2;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 15px 10px var(--color-shadow);
+  box-shadow: 0px 0px 15px 10px var(--color-shadow);
+}
+.container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 700px;
+  height: 205%;
+  background: linear-gradient(#00ccff, #d900ff);
+  animation: rotate 7s linear infinite;
+  z-index: -1;
+}
+.container::after {
+  content: "";
+  position: absolute;
+  background: #0e1538;
+  inset: 5px;
+  border-radius: 0.5em;
+  z-index: -1;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.section-container {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+.btn {
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  background-color: var(--bgcolor-buttonNoActive);
+  color: var(--color-buttonNoActive);
+}
+.btn-focus {
+  background-color: var(--bgcolor-buttonActive);
+  color: var(--color-buttonActive);
+}
+.time-btn-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+#time {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  color: var(--color-buttonActive);
+  font-size: 5em;
+  font-weight: 600;
+}
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+#btn-start,
+#btn-pause {
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  background-color: var(--color-buttonActive);
+}
+#btn-reset {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-buttonActive);
+  font-size: 2em;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
